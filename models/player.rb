@@ -8,9 +8,8 @@ class Player
   has n, :scores
   has n, :games, model: 'Game', child_key: [:id], parent_key: [:game_id], :through => :scores
 
-  def current_score
-    binding.pry
-    scores
+  def points
+    scores.select.map{ |score| score.pines }.compact
   end
 
 end

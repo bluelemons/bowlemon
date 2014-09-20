@@ -14,18 +14,26 @@ class Game
   end
 
   def current_player
-    players[turn]
+    players[turn % players.count]
   end
 
   def player name
-    players.select { |player| name == player.name }
+    players.select { |player| name == player.name }.first
   end
 
   def player_list
     self.players.map { |player| player.name }
   end
 
-end
+  def << pines
+    current_player.scores.create(pines: pines, game_id: id)
+    check_to_next_turn
+  end
 
-# Perform basic sanity checks and initialize all relationships
-# Call this when you've defined all your models
+  private
+
+  def check_to_next_turn
+    self.turn += 1 if current_player.points.count.even?
+  end
+
+end
