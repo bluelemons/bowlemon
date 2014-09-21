@@ -18,12 +18,17 @@ GEM
       dm-transactions (~> 1.2.0)
       dm-types (~> 1.2.0)
       dm-validations (~> 1.2.0)
+    data_objects (0.10.14)
+      addressable (~> 2.1)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
       dm-core (~> 1.2.0)
     dm-core (1.2.1)
       addressable (~> 2.3)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
     dm-serializer (1.2.2)
@@ -32,6 +37,9 @@ GEM
       json (~> 1.6)
       json_pure (~> 1.6)
       multi_json (~> 1.0)
+    dm-sqlite-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_sqlite3 (~> 0.10.6)
     dm-timestamps (1.2.0)
       dm-core (~> 1.2.0)
     dm-transactions (1.2.0)
@@ -46,6 +54,8 @@ GEM
       uuidtools (~> 2.1)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
+    do_sqlite3 (0.10.14)
+      data_objects (= 0.10.14)
     docile (1.1.5)
     fastercsv (1.5.5)
     json (1.8.1)
@@ -59,6 +69,9 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rake (10.3.2)
     simplecov (0.9.0)
       docile (~> 1.1.0)
       multi_json
@@ -84,7 +97,10 @@ PLATFORMS
 DEPENDENCIES
   codeclimate-test-reporter
   data_mapper
+  dm-sqlite-adapter
   pry
+  rack-test
+  rake
   sinatra
   slim
   sqlite3
