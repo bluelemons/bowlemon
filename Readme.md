@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bluelemons/bowlemon.svg)](https://travis-ci.org/bluelemons/bowlemon)
+
 # Bowling
 this is a sinatra application to keep record of bowlings games.
 
