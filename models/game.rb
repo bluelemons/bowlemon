@@ -27,13 +27,15 @@ class Game
 
   def << pines
     current_player.scores.create(pines: pines, game_id: id)
-    check_to_next_turn
+    check_to_next_turn pines
   end
 
   private
 
-  def check_to_next_turn
-    self.turn += 1 if current_player.points.count.even?
+  def check_to_next_turn pines
+    if pines == 10 || current_player.points.count.even?
+      self.turn += 1
+    end
   end
 
 end

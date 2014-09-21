@@ -15,3 +15,22 @@ require "./config/#{ ENV["RACK_ENV"]  || 'development' }"
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+get '/games/new' do
+  slim :new
+end
+
+post '/games' do
+  players = params[:players].split(',')
+  @game = Game.new *players
+  if @game.save
+    redirect "/games/#{ @game.id }"
+  else
+    slim :new
+  end
+end
+
+get '/games/:id' do
+  @game = Game.first(id: params[:id])
+  slim :game
+end

@@ -38,4 +38,10 @@ describe "games" do
     assert game.current_player != player
   end
 
+  it 'someone score 10, should change the current user' do
+    player = game.current_player
+    game << 10
+    assert game.current_player != player
+  end
+
 end
