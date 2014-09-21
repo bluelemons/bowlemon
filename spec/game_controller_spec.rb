@@ -8,7 +8,7 @@ describe "games controller" do
 
   it 'should display a form to create a new game' do
     get '/games/new'
-    assert last_response.body.must_include "players"
+    assert last_response.body.must_include "player_names"
   end
 
   it 'should update the data from a game in a line' do
