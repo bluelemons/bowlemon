@@ -23,18 +23,18 @@ end
 post '/games' do
   @game = Game.new params
   if @game.save
-    redirect "/games/#{ @game.id }"
+    redirect "/lines/#{ @game.line }"
   else
     slim :new
   end
 end
 
-get '/games/:id' do
-  @game = Game.first(id: params[:id])
+get '/lines/:line' do
+  @game = Game.last(line: params[:line])
   slim :game
 end
 
-put '/games/:id' do
-  @game = Game.first(id: params[:id])
+put '/lines/:line' do
+  @game = Game.last(line: params[:line])
   @game << params["shoot"].to_i
 end

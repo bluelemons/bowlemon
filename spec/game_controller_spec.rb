@@ -11,17 +11,17 @@ describe "games controller" do
     assert last_response.body.must_include "players"
   end
 
-  it 'should display the data from a specific game' do
-    game.save
-    get "/games/#{ game.id }"
-    assert last_response.body.must_include 'olvap'
-    assert last_response.body.must_include 'liza'
-  end
-
-  it 'should update the data from a game' do
+  it 'should update the data from a game in a line' do
     game.save
     player = game.current_player
-    put "/games/#{ game.id }", { shoot: '4' }
+    put "/lines/#{ game.line }", { shoot: '4' }
     assert player.points == [4]
+  end
+
+  it 'should return the current game when get a line' do
+    game.save
+    get "/lines/#{ game.line }"
+    assert last_response.body.must_include 'olvap'
+    assert last_response.body.must_include 'liza'
   end
 end

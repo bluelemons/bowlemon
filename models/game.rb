@@ -10,6 +10,7 @@ class Game
   def initialize args
     self.turn = 0
     self.players = args[:player_names].split(',').map{ |name| Player.new name: name.strip }
+    self.line = args[:line]
   end
 
   def current_player
