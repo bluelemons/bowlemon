@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/bluelemons/bowlemon.svg)](https://travis-ci.org/bluelemons/bowlemon)
+[![Code Climate](https://codeclimate.com/github/bluelemons/bowlemon/badges/gpa.svg)](https://codeclimate.com/github/bluelemons/bowlemon)
 
 # Bowling
 this is a sinatra application to keep record of bowlings games.
