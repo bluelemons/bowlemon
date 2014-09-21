@@ -9,3 +9,5 @@ gem 'data_mapper'
 gem 'sqlite3'
 
 gem 'pry'
+
+gem "codeclimate-test-reporter", group: :test, require: nil
