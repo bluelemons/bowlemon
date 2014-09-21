@@ -34,3 +34,8 @@ get '/games/:id' do
   @game = Game.first(id: params[:id])
   slim :game
 end
+
+put '/games/:id' do
+  @game = Game.first(id: params[:id])
+  @game << params["shoot"].to_i
+end

@@ -14,7 +14,7 @@ class Game
   end
 
   def current_player
-    players[turn % players.count]
+    players[turn % players.size]
   end
 
   def player name
@@ -34,7 +34,8 @@ class Game
 
   def check_to_next_turn pines
     if pines == 10 || current_player.points.count.even?
-      self.turn += 1
+      self.turn = turn + 1
+      save
     end
   end
 

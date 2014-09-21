@@ -2,5 +2,7 @@ table
   - @game.players.each do |player|
     tr
       td = player.name
-      - 21.times do |i|
+      - player.points.each do |i|
+        td id = "#{ player.name }-#{ i }" = i
+      - (21 - player.points.count).times do |i|
         td id = "#{ player.name }-#{ i }" 0
