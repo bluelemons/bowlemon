@@ -2,8 +2,7 @@ class Game
   include DataMapper::Resource
   property :id, Serial
   property :turn, Integer
-  #property :body, Text
-  #property :created_at, DateTime
+  property :line, Integer
 
   has n, :scores
   has n, :players, model: 'Player', child_key: [:id], parent_key: [:player_id], :through => :scores

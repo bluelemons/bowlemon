@@ -3,7 +3,7 @@ require './test.rb'
 describe "games controller" do
 
   def game
-    @game ||= Game.new(player_names: "olvap, liza")
+    @game ||= Game.new(player_names: "olvap, liza", line: 1)
   end
 
   it 'should display a form to create a new game' do
