@@ -3,7 +3,7 @@ require './test.rb'
 describe "games" do
 
   def new_game
-    @game ||= Game.new("olvap", "liza")
+    @game ||= Game.new(player_names: "olvap, liza")
   end
 
   def create_game

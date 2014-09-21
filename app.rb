@@ -21,8 +21,7 @@ get '/games/new' do
 end
 
 post '/games' do
-  players = params[:players].split(',')
-  @game = Game.new *players
+  @game = Game.new params
   if @game.save
     redirect "/games/#{ @game.id }"
   else

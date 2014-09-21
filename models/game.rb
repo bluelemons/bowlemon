@@ -8,9 +8,9 @@ class Game
   has n, :scores
   has n, :players, model: 'Player', child_key: [:id], parent_key: [:player_id], :through => :scores
 
-  def initialize *args
+  def initialize args
     self.turn = 0
-    self.players = args.map{ |name| Player.new name: name }
+    self.players = args[:player_names].split(',').map{ |name| Player.new name: name.strip }
   end
 
   def current_player
